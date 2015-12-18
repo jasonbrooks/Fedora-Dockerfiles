@@ -1,4 +1,4 @@
-FROM fedora/systemd-systemd
+FROM jasonbrooks/systemd-systemd
 MAINTAINER http://fedoraproject.org/wiki/Cloud
 
 # USING THIS CONTAINER
@@ -9,7 +9,7 @@ MAINTAINER http://fedoraproject.org/wiki/Cloud
 # 	-v /var/lib/libvirt:/var/lib/libvirt:rw \
 # 	-v /var/run/libvirt:/var/run/libvirt:rw \
 # 	-v /sys/fs/cgroup:/sys/fs/cgroup:rw \
-# 	fedora/systemd-libvirtd
+# 	jasonbrooks/systemd-libvirtd
 
 VOLUME /var/lib/libvirt
 VOLUME /var/log
@@ -20,13 +20,13 @@ VOLUME /run
 # providing an alternative configuration.
 EXPOSE 16509
 
-RUN yum -y install \
+RUN dnf -y install \
 	libvirt \
 	qemu \
 	qemu-kvm \
 	virt-install \
 	pygobject3-base \
-	; yum clean all
+	; dnf clean all
 
 # Enable libvirtd and virtlockd services.
 RUN systemctl enable libvirtd
