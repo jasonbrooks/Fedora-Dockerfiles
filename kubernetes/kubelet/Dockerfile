@@ -5,7 +5,7 @@ MAINTAINER Solly Ross <sross@redhat.com>
 # properly in a container, so we skip installing it
 
 # Containerized kubelet requires nsenter
-RUN yum install -y util-linux && yum clean all
+RUN dnf install -y util-linux && dnf clean all
 
 # cAdvisor wants /etc/machine-id
 # containerized kubelet needs /:/rootfs and /var/lib/kubelet to mount volumes

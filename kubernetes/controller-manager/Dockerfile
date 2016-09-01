@@ -1,4 +1,4 @@
-FROM fedora
+FROM fedora/kubernetes-master
 MAINTAINER Solly Ross <sross@redhat.com>
 
 COPY launch.sh /usr/bin/kube-controller-manager-docker.sh
